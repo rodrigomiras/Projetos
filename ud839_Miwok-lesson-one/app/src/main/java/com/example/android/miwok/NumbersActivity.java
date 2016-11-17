@@ -34,9 +34,10 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //String[] words = new String[10];
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("One");
-        words.add("Two");
+        //ArrayList<String> words = new ArrayList<String>();
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("One","Lutti"));
+        /*words.add("Two");
         words.add("three");
         words.add("Four");
         words.add("Five");
@@ -54,9 +55,9 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("Seventeen");
         words.add("Eighteen");
         words.add("Nineteen");
-        words.add("Twenty");
-
-        /*int n = 0;
+        words.add("Twenty");*/
+        /*
+        int n = 0;
         while (n < words.size()) {
             Log.v("NumbersActivity", "Word at index " + n + ": " + words.get(n));
             n++;
@@ -68,9 +69,9 @@ public class NumbersActivity extends AppCompatActivity {
             wordView.setText(words.get(index));
             rootView.addView(wordView);
         }*/
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        ArrayAdapter<Word> adapter = new ArrayAdapter<Word>(this, words);
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
         //GridView gridView = (GridView) findViewById(R.id.gridview);
         //gridView.setAdapter(itemsAdapter);
     }
