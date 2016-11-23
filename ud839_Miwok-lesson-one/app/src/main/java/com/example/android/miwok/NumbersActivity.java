@@ -37,6 +37,21 @@ public class NumbersActivity extends AppCompatActivity {
         //ArrayList<String> words = new ArrayList<String>();
         ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("One","Lutti"));
+        words.add(new Word("Two","Lutti"));
+        words.add(new Word("three","Lutti"));
+        words.add(new Word("Four","Lutti"));
+        words.add(new Word("Five","Lutti"));
+        words.add(new Word("Six","Lutti"));
+        words.add(new Word("Seven","Lutti"));
+        words.add(new Word("Eight","Lutti"));
+        words.add(new Word("Nine","Lutti"));
+        words.add(new Word("Ten","Lutti"));
+        words.add(new Word("Eleven","Lutti"));
+        words.add(new Word("Twelve","Lutti"));
+        words.add(new Word("Thirteen","Lutti"));
+        words.add(new Word("Fourteen","Lutti"));
+        words.add(new Word("Fiveteen","Lutti"));
+        words.add(new Word("Sixteen","Lutti"));
         /*words.add("Two");
         words.add("three");
         words.add("Four");
@@ -69,7 +84,7 @@ public class NumbersActivity extends AppCompatActivity {
             wordView.setText(words.get(index));
             rootView.addView(wordView);
         }*/
-        ArrayAdapter<Word> adapter = new ArrayAdapter<Word>(this, words);
+        WordAdapter adapter = new WordAdapter(this,words);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
         //GridView gridView = (GridView) findViewById(R.id.gridview);
