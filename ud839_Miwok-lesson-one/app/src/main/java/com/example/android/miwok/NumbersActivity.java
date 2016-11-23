@@ -17,12 +17,7 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -31,27 +26,21 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         //String[] words = new String[10];
         //ArrayList<String> words = new ArrayList<String>();
         ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("One","Lutti"));
-        words.add(new Word("Two","Lutti"));
-        words.add(new Word("three","Lutti"));
-        words.add(new Word("Four","Lutti"));
-        words.add(new Word("Five","Lutti"));
-        words.add(new Word("Six","Lutti"));
-        words.add(new Word("Seven","Lutti"));
-        words.add(new Word("Eight","Lutti"));
-        words.add(new Word("Nine","Lutti"));
-        words.add(new Word("Ten","Lutti"));
-        words.add(new Word("Eleven","Lutti"));
-        words.add(new Word("Twelve","Lutti"));
-        words.add(new Word("Thirteen","Lutti"));
-        words.add(new Word("Fourteen","Lutti"));
-        words.add(new Word("Fiveteen","Lutti"));
-        words.add(new Word("Sixteen","Lutti"));
+        words.add(new Word("Two","otiiko"));
+        words.add(new Word("three","tolookosu"));
+        words.add(new Word("Four","oyyisa"));
+        words.add(new Word("Five","massokka"));
+        words.add(new Word("Six","temmokka"));
+        words.add(new Word("Seven","kenekaku"));
+        words.add(new Word("Eight","kawinta"));
+        words.add(new Word("Nine","wo’e"));
+        words.add(new Word("Ten","na’aacha"));
         /*words.add("Two");
         words.add("three");
         words.add("Four");
