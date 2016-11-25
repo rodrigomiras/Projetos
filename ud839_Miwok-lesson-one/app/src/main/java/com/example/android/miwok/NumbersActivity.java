@@ -17,7 +17,13 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,8 +34,6 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        //String[] words = new String[10];
-        //ArrayList<String> words = new ArrayList<String>();
         ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("One","Lutti",R.drawable.number_one));
         words.add(new Word("Two","otiiko",R.drawable.number_two));
@@ -41,42 +45,16 @@ public class NumbersActivity extends AppCompatActivity {
         words.add(new Word("Eight","kawinta",R.drawable.number_eight));
         words.add(new Word("Nine","wo’e",R.drawable.number_nine));
         words.add(new Word("Ten","na’aacha",R.drawable.number_ten));
-        /*words.add("Two");
-        words.add("three");
-        words.add("Four");
-        words.add("Five");
-        words.add("Six");
-        words.add("Seven");
-        words.add("Eight");
-        words.add("Nive");
-        words.add("Ten");
-        words.add("Eleven");
-        words.add("Twelve");
-        words.add("Thirteen");
-        words.add("Fourteen");
-        words.add("Fiveteen");
-        words.add("Sixteen");
-        words.add("Seventeen");
-        words.add("Eighteen");
-        words.add("Nineteen");
-        words.add("Twenty");*/
-        /*
-        int n = 0;
-        while (n < words.size()) {
-            Log.v("NumbersActivity", "Word at index " + n + ": " + words.get(n));
-            n++;
-        }
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
-        for(int index = 0; index < words.size(); index++) {
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
-        }*/
         WordAdapter adapter = new WordAdapter(this,words,R.color.category_numbers);
+
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
-        //GridView gridView = (GridView) findViewById(R.id.gridview);
-        //gridView.setAdapter(itemsAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(NumbersActivity.this,"Item clicado",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
