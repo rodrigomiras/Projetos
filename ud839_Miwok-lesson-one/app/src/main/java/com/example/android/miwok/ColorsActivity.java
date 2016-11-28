@@ -53,7 +53,15 @@ public class ColorsActivity extends AppCompatActivity {
                 Word word = words.get(position);
                 //Toast.makeText(NumbersActivity.this,"Item clicado",Toast.LENGTH_SHORT).show();
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this,word.getAudioResourceId());
+                mMediaPlayer.release();
                 mMediaPlayer.start();
+                mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        //Toast.makeText(NumbersActivity.this, "I'm done !", Toast.LENGTH_SHORT).show();
+                        mMediaPlayer.release();
+                    }
+                });
             }
         });
     }
