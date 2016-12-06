@@ -41,15 +41,10 @@ public class EarthquakeActivity extends AppCompatActivity {
         earthquakes.add(new Earthquake("2.2","Rio de Janeiro","20/11/16"));
         earthquakes.add(new Earthquake("3.9","Paris","02/12/16"));
 
-        // Find a reference to the {@link ListView} in the layout
-        ListView earthquakeListView = (ListView) findViewById(R.id.list);
+        EarthquakeAdapter adapter = new EarthquakeAdapter(this,earthquakes);
 
-        // Create a new {@link ArrayAdapter} of earthquakes
-        ArrayAdapter<Earthquake> adapter = new ArrayAdapter<Earthquake>(
-                this, android.R.layout.simple_list_item_1, earthquakes);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
 
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
-        earthquakeListView.setAdapter(adapter);
     }
 }

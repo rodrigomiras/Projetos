@@ -18,7 +18,6 @@ public class Earthquake {
     public String getMagnitude(){
         return mMagnitude;
     }
-
     public String getLocation(){
         return mLocation;
     }
