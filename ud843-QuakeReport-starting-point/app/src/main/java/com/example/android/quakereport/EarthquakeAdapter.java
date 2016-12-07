@@ -21,6 +21,8 @@ import static android.view.View.VISIBLE;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
+    private static final String LOCATION_SEPARATOR = " of ";
+
     public EarthquakeAdapter(Activity context, ArrayList<Earthquake> words) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
@@ -39,9 +41,11 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if the existing view is being reused, otherwise inflate the view
-        View listItemView = convertView;
+        String primaryLocation;
+        String locationOffset;
 
+        View listItemView = convertView;
+        // Check if the existing view is being reused, otherwise inflate the view
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.earthquake_list_item, parent, false);
         }
@@ -49,11 +53,25 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Get the {@link Earthquake} object located at this position in the list
         Earthquake currentEarthquake = getItem(position);
 
+        String originalLocation = currentEarthquake.getLocation();
+
+        if (originalLocation.contains(LOCATION_SEPARATOR)) {
+            String[] parts = originalLocation.split(LOCATION_SEPARATOR);
+            locationOffset = parts[0] + LOCATION_SEPARATOR;
+            primaryLocation = parts[1];
+        } else {
+            locationOffset = getContext().getString(R.string.near_the);
+            primaryLocation = originalLocation;
+        }
+
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
         magnitudeTextView.setText(currentEarthquake.getMagnitude());
 
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
-        locationTextView.setText(currentEarthquake.getLocation());
+        TextView primaryLocationView = (TextView) listItemView.findViewById(R.id.primary_location);
+        primaryLocationView.setText(primaryLocation);
+
+        TextView locationOffsetView = (TextView) listItemView.findViewById(R.id.location_offset);
+        locationOffsetView.setText(locationOffset);
 
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
         dateTextView.setText(currentEarthquake.getDate());
